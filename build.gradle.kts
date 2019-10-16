@@ -34,8 +34,10 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("com.vladmihalcea:hibernate-types-52:2.6.1")
-    implementation("org.springframework.security:spring-security-oauth2-client:5.2.0.RELEASE")
-    implementation("org.springframework.security:spring-security-oauth2-jose:5.2.0.RELEASE")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.10.0")
+    implementation("io.jsonwebtoken:jjwt:0.9.1")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.flywaydb:flyway-core:5.2.4")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
