@@ -22,7 +22,6 @@ class JwtAuthenticationEntryPoint : AuthenticationEntryPoint {
     }
 
     companion object {
-
         private val logger = LoggerFactory.getLogger(JwtAuthenticationEntryPoint::class.java)
     }
 }

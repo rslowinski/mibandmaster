@@ -15,13 +15,7 @@ import javax.validation.constraints.Size
 class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Long,
-
-    @NotBlank @Size(max = 60)
-    var name: String,
-
-    @NotBlank @Size(max = 15)
-    var username: String,
+    var id: Long = 0,
 
     @NaturalId @NotBlank @Size(max = 60)
     var email: String,
@@ -29,14 +23,22 @@ class User(
     @NotBlank @Size(max = 100)
     var password: String,
 
+    @NotBlank @Size(max = 60)
+    var name: String = "",
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "user_roles",
         joinColumns = [JoinColumn(name = "user_id")],
         inverseJoinColumns = [JoinColumn(name = "role_id")]
     )
-    var roles: Set<Role>
+    var roles: Set<Role> = emptySet()
 
-) : DateAudit()
+) : DateAudit() {
+
+    fun setRole(role: Role) {
+        roles = setOf(role)
+    }
+}
 
 
