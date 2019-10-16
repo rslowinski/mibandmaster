@@ -12,7 +12,6 @@ import java.util.stream.Collectors
 class UserPrincipal(
     val id: Long,
     val name: String,
-    private val username: String,
 
     @field:JsonIgnore
     val email: String,
@@ -23,7 +22,7 @@ class UserPrincipal(
 ) : UserDetails {
 
     override fun getUsername(): String {
-        return username
+        return email
     }
 
     override fun getPassword(): String {
@@ -69,7 +68,6 @@ class UserPrincipal(
             return UserPrincipal(
                 user.id,
                 user.name,
-                user.username,
                 user.email,
                 user.password,
                 authorities
