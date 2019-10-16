@@ -84,9 +84,7 @@ class SecurityConfig(
                 "/**/*.js"
             )
             .permitAll()
-            .antMatchers("/api/auth/**")
-            .permitAll()
-            .antMatchers("/api/user/checkUsernameAvailability", "/api/user/checkEmailAvailability")
+            .antMatchers("/api/v1/auth/**")
             .permitAll()
             .antMatchers(HttpMethod.GET, "/api/polls/**", "/api/users/**")
             .permitAll()
