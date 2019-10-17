@@ -89,8 +89,7 @@ class SecurityConfig(
             .antMatchers(HttpMethod.GET, "/api/polls/**", "/api/users/**")
             .permitAll()
             .anyRequest()
-            .permitAll()
-//            .authenticated()
+            .authenticated()
 
         // Add custom JWT security filter
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter::class.java)
